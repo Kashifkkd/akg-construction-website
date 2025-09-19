@@ -1,11 +1,9 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Award, Users, Clock, Target, ChevronLeft, ChevronRight, ArrowRight, Play } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { ChevronLeft, ChevronRight, ArrowRight, Play } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import { Analytics } from "@vercel/analytics/next" add this
 const slideshowImages = [
   {
     src: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
@@ -102,12 +100,12 @@ const useCountUp = (end: number, duration: number = 2000, start: number = 0) => 
     const animate = (currentTime: number) => {
       if (!startTime) startTime = currentTime
       const progress = Math.min((currentTime - startTime) / duration, 1)
-      
+
       const easeOutQuart = 1 - Math.pow(1 - progress, 4)
       const currentCount = Math.floor(easeOutQuart * (end - start) + start)
-      
+
       setCount(currentCount)
-      
+
       if (progress < 1) {
         animationFrame = requestAnimationFrame(animate)
       } else {
@@ -152,7 +150,7 @@ export default function About() {
     <section id="about" className="section-padding bg-gradient-to-br from-background via-muted/30 to-background relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-dots opacity-30" />
-      
+
       {/* Light Background Animation */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -182,7 +180,7 @@ export default function About() {
           }}
         />
       </div>
-      
+
       <div className="max-w-7xl mx-auto container-padding relative z-10">
         {/* Section Title */}
         <motion.div
@@ -242,14 +240,14 @@ export default function About() {
               className="space-y-4"
             >
               <p className="text-lg text-slate-600 leading-relaxed">
-                AKG Sons Infra wasn't born from a corporate boardroom, but from a shared vision. 
-                We, a group of passionate engineers, were tired of seeing substandard infrastructure 
-                that failed to serve communities properly. We craved a company that fostered innovation, 
+                AKG Sons Infra wasn't born from a corporate boardroom, but from a shared vision.
+                We, a group of passionate engineers, were tired of seeing substandard infrastructure
+                that failed to serve communities properly. We craved a company that fostered innovation,
                 nurtured excellence, and offered the expertise to help India's infrastructure flourish.
               </p>
               <p className="text-lg text-slate-600 leading-relaxed">
-                From highways that connect cities to bridges that unite communities, from industrial 
-                complexes that drive economic growth to urban developments that enhance quality of life – 
+                From highways that connect cities to bridges that unite communities, from industrial
+                complexes that drive economic growth to urban developments that enhance quality of life –
                 we have consistently delivered projects that stand the test of time.
               </p>
             </motion.div>
@@ -280,7 +278,7 @@ export default function About() {
                   viewport={{ once: true }}
                   className="flex items-center justify-between py-4 border-b border-slate-200 last:border-b-0 group hover:bg-slate-50/50 rounded-lg px-4 -mx-4 transition-colors duration-300"
                 >
-                  <motion.span 
+                  <motion.span
                     className="text-4xl font-bold text-slate-900 group-hover:text-yellow-600 transition-colors duration-300"
                     key={stat.number}
                     initial={{ scale: 0.8 }}
@@ -337,7 +335,7 @@ export default function About() {
                       </video>
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    
+
                     {/* Play icon for videos */}
                     {item.type === 'video' && (
                       <div className="absolute inset-0 flex items-center justify-center">
@@ -416,44 +414,44 @@ export default function About() {
               viewport={{ once: true }}
               className="group"
             >
-                <motion.div
-                  whileHover={{ y: -8, scale: 1.05 }}
-                  className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white via-slate-50 to-white p-6 text-center h-full shadow-xl hover:shadow-2xl transition-all duration-500 border border-slate-200/50"
-                >
-                  {/* Background Pattern */}
-                  <div className="absolute inset-0 bg-grid opacity-5"></div>
-                  
-                  {/* Decorative Elements */}
-                  <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-yellow-400/10 to-transparent rounded-full blur-xl"></div>
-                  <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-gradient-to-tr from-yellow-400/10 to-transparent rounded-full blur-xl"></div>
-                  
-                  <div className="relative z-10">
-                    <motion.div
-                      className="relative w-full h-40 mx-auto mb-4 overflow-hidden rounded-2xl shadow-lg"
-                      whileHover={{ rotate: 2, scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Image
-                        src={achievement.image}
-                        alt={achievement.title}
-                        fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
-                      <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-transparent"></div>
-                    </motion.div>
-                    
-                    <h4 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-yellow-600 transition-colors duration-300">
-                      {achievement.title}
-                    </h4>
-                    <p className="text-slate-600 leading-relaxed text-lg">
-                      {achievement.description}
-                    </p>
-                    
-                    {/* Decorative line */}
-                    <div className="mt-6 w-16 h-1 bg-gradient-to-r from-yellow-400 to-yellow-500 mx-auto rounded-full"></div>
-                  </div>
-                </motion.div>
+              <motion.div
+                whileHover={{ y: -8, scale: 1.05 }}
+                className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white via-slate-50 to-white p-6 text-center h-full shadow-xl hover:shadow-2xl transition-all duration-500 border border-slate-200/50"
+              >
+                {/* Background Pattern */}
+                <div className="absolute inset-0 bg-grid opacity-5"></div>
+
+                {/* Decorative Elements */}
+                <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-yellow-400/10 to-transparent rounded-full blur-xl"></div>
+                <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-gradient-to-tr from-yellow-400/10 to-transparent rounded-full blur-xl"></div>
+
+                <div className="relative z-10">
+                  <motion.div
+                    className="relative w-full h-40 mx-auto mb-4 overflow-hidden rounded-2xl shadow-lg"
+                    whileHover={{ rotate: 2, scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Image
+                      src={achievement.image}
+                      alt={achievement.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-transparent"></div>
+                  </motion.div>
+
+                  <h4 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-yellow-600 transition-colors duration-300">
+                    {achievement.title}
+                  </h4>
+                  <p className="text-slate-600 leading-relaxed text-lg">
+                    {achievement.description}
+                  </p>
+
+                  {/* Decorative line */}
+                  <div className="mt-6 w-16 h-1 bg-gradient-to-r from-yellow-400 to-yellow-500 mx-auto rounded-full"></div>
+                </div>
+              </motion.div>
             </motion.div>
           ))}
         </motion.div>
