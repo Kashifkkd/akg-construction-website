@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "AKG Sons Infra - Leading Civil Engineering & Infrastructure Company",
@@ -51,6 +52,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         {children}
+        <Analytics />
       </body>
     </html>
   );
